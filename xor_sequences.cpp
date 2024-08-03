@@ -13,7 +13,16 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-
+    int a,b;
+    cin>>a>>b;
+    for (int i = 0; i < 30; i++)
+    {
+        if ((a & (1 << i)) != (b & (1 << i))) {
+                cout << (1ll << i) << "\n";
+                
+            }
+    }
+    
 }
 
 
