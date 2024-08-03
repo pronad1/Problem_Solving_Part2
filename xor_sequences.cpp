@@ -19,7 +19,7 @@ void solve(void)
     {
         if ((a & (1 << i)) != (b & (1 << i))) {
                 cout << (1ll << i) << "\n";
-                
+                break;
             }
     }
     
