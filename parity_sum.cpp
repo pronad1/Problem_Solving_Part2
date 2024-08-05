@@ -13,7 +13,7 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-    ll e=0,n;
+    ll o=0,e=0,n;
     cin>>n;
     set<ll>st;
 
@@ -28,9 +28,13 @@ void solve(void)
         {
             e++;
         }
+        else
+        {
+            o++;
+        }
         
     }
-    if (st.size()==1||e==n)
+    if (st.size()==1||e==n||o==n)
     {
         cout<<0<<'\n';
     }
