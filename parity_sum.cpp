@@ -13,33 +13,53 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-    ll o=0,e=0,n;
+    ll om=-1,od=0,e=0,n;
     cin>>n;
-    set<ll>st;
 
-    vector<ll>v;
+    vector<ll>v,v2;
     for(int i=0;i<n;i++)
     {
         ll o;
         cin>>o;
         v.push_back(o);
-        st.insert(o);
         if (o%2==0)
         {
+            v2.push_back(o);
             e++;
         }
         else
         {
-            o++;
+            om=max(om,o);
+            od++;
         }
         
     }
-    if (st.size()==1||e==n||o==n)
+    if (e==0||od==0)
     {
         cout<<0<<'\n';
     }
-    else if (e!=n && e>0)
+    else
     {
+        sort(v2.begin(),v2.end());
+        int r=0;
+        for (int i = 0; i < v2.size(); i++)
+        {
+            if (om<v2[i])
+            {
+                r=1;
+                break;
+            }
+            else
+            {
+                om+=v2[i];
+            }
+            
+        }
+        if (r==1)
+        {
+            cout<<e+1<<'\n';
+        }
+        else
         cout<<e<<'\n';
     }
     
