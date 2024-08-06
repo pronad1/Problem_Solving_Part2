@@ -29,11 +29,6 @@ void solve(void)
         cout<<2<<'\n';
         return;
     }
-    if (smi>vmi||sma>vma||sma>vmi)
-    {
-        cout<<1<<'\n';
-        return;
-    }
     
     cout<<0<<'\n';
 }
