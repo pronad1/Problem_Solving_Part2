@@ -15,22 +15,24 @@ void solve(void)
 {
     int a,b,c,d;
     cin>>a>>b>>c>>d;
-    int smi=min(a,b);
-    int sma=max(a,b);
-    int vmi=min(c,d);
-    int vma=max(c,d);
-    if (smi>vma)
+    int ans=0;
+    if ((a>c&&b>=d)||(a>=c&&b>d))
     {
-        cout<<4<<'\n';
-        return;
+        ans++;
     }
-    if (smi>vmi&&sma>vma)
+    if ((a>d&&b>=c)||(a>=d&&b>c))
     {
-        cout<<2<<'\n';
-        return;
+        ans++;
     }
-    
-    cout<<0<<'\n';
+    if ((b>d&&a>=c)||(b>=d&&a>c))
+    {
+        ans++;
+    }
+    if ((b>c&&a>=d)||(b>=c&&a>d))
+    {
+        ans++;
+    }
+    cout<<ans<<'\n';
 }
 
 
