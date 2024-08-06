@@ -13,29 +13,31 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-    int a,b,c,d;
-    cin>>a>>b>>c>>d;
-    int smi=min(a,b);
-    int sma=max(a,b);
-    int vmi=min(c,d);
-    int vma=max(c,d);
-    if (smi>vma)
+    ll v=0,n,s,m;
+    cin>>n>>s>>m;
+    ll f=0;
+    for (int i = 0; i < n; i++)
     {
-        cout<<4<<'\n';
-        return;
+        ll a,b;
+        cin>>a>>b;
+        ll x=a-f;
+        f=b;
+        if(x>=s)
+        {
+            v=1;
+        }
+        
     }
-    if (smi>vmi&&sma>vma)
+    ll y=m-f;
+    if (y>=s||v==1)
     {
-        cout<<2<<'\n';
-        return;
+        cout<<"YES"<<'\n';
     }
-    if (smi>vmi||sma>vma)
+    else
     {
-        cout<<1<<'\n';
-        return;
+        cout<<"NO"<<'\n';
     }
     
-    cout<<0<<'\n';
 }
 
 
