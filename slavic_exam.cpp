@@ -17,43 +17,29 @@ void solve(void)
     int j = 0;
     for (int i = 0; i < a.length(); i++)
     {
-        if (a[i] == b[j] || a[i] == '?')
+        if (a[i] == '?')
+        {
+            if (j<b.size())
+            {
+                a[i]=b[j++];
+            }
+            else
+            {
+                a[i]='a';
+            }
+            
+        }
+        else if (a[i]==b[j])
         {
             j++;
         }
+        
     }
-    //j++;
-    if (j >= b.length())
+    if (j>=b.size())
     {
-        cout << "YES" << '\n';
-
-        int j = 0;
-        for (int i = 0; i < a.length(); i++)
-        {
-            if (a[i] == b[j])
-            {
-                cout<<b[j];
-                j++;
-            }
-            else if (a[i] == '?'&&j<b.length())
-            {
-                cout<<b[j];
-                j++;
-            }
-            
-            else if (j>=b.length()&&a[i]=='?')
-            {
-               cout<<'a';
-            }
-            
-            else
-            {
-                cout<<a[i];
-            }
-            
-        }
-        cout<<'\n';
+        cout<<"YES"<<'\n'<<a<<'\n';
     }
+    
     else
     {
         cout<<"NO"<<'\n';
