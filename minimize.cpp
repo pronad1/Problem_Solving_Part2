@@ -15,28 +15,23 @@ void solve(void)
 {
     ll n;
     cin>>n;
-    vector<ll>v;
+    ll v[n],v2[n];
     for(int i=0;i<n;i++)
     {
-        ll o;
-        cin>>o;
-        v.push_back(o);
+        cin>>v[i];
     }
-    if (n==2)
+    v2[0]=v[n-1];
+    for (int i = 1; i < n; i++)
     {
-       cout<<v[1]<<" "<<v[0]<<'\n';
-       return;
+        v2[i]=v[i-1];
     }
     
-    for (int i = 1; i < n-1; i+=2)
+    
+    for (int i = 0; i < n-1; i++)
     {
-        cout<<v[i]<<" ";
+        cout<<v2[i]<<" ";
     }
-    for (int i = 0; i < n-1; i+=2)
-    {
-        cout<<v[i]<<" ";
-    }
-    cout<<v[n-1]<<'\n';
+    cout<<v2[n-1]<<'\n';
     
 }
 
