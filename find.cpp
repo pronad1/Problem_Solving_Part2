@@ -15,20 +15,23 @@ void solve(void)
 {
     int x,y,k;
     cin>>x>>y>>k;
-    vector<ll>v1,v2;
-    ll sum=0;
-    for(int i=1;i<=k-1;i++)
+    vector<pair<ll,ll>>v;
+    if (k%2)
     {
-        v1.push_back(i);
-        v2.push_back(i);
-        sum+=i;
+      v.push_back({x,y});
     }
-    v1.push_back(x*k-sum);
-    v2.push_back(y*k-sum);
-    for (int i = 0; i < k; i++)
+    
+    for(int i=1;i<k;i+=2)
     {
-        cout<<v1[i]<<" "<<v2[i]<<'\n';
+        v.push_back({x-i,y-i});
+        v.push_back({x+i,y+i});
     }
+    
+    for (auto it:v)
+    {
+      cout<<it.first<<" "<<it.second<<'\n';
+    }
+    
     
 }
 
