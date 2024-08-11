@@ -29,7 +29,7 @@ void solve(void)
     
     for (auto it:v)
     {
-      cout<<it.first<<" "<<it.second<<'\n';
+      cout<<it.first<<" "<<it.second<<" ";
     }
     
     
