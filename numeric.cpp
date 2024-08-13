@@ -46,7 +46,25 @@ void solve(void)
                     if (mp[s[i]]!=v[i])
                     {
                         f=1;
-                        cout<<"NO"<<'\n';
+                        break;
+                    }
+                    
+                }
+                
+            }
+            map<ll,char>mpp;
+            for (int i = 0; i <n; i++)
+            {
+                if (mpp[v[i]]==0)
+                {
+                    mpp[v[i]]=s[i];
+                }
+                else
+                {
+                    if (mpp[v[i]]!=s[i])
+                    {
+                        f=1;
+                        
                         break;
                     }
                     
@@ -57,6 +75,11 @@ void solve(void)
             {
                 cout<<"YES"<<'\n';
             }
+            else
+            {
+                cout<<"NO"<<'\n';
+            }
+            
             f=0;
         }
         
