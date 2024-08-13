@@ -14,7 +14,7 @@ void solve(void)
 {
     string n;
     cin >> n;
-    if (n[0] != '1')
+    if (n[0] != '1'||n.size()<=2)
     {
         cout << "NO" << '\n';
         return;
