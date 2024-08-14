@@ -15,7 +15,7 @@ void solve(void)
 {
     ll sum=0,n;
     string s;
-    cin>>n>>s;
+    cin>>n;
     vector<ll>v;
     for(int i=0;i<n;i++)
     {
@@ -24,6 +24,7 @@ void solve(void)
         v.push_back(o);
         sum+=o;
     }
+    cin>>s;
     ll sc=0,f=0,l=n-1;
     while (f<l)
     {
