@@ -12,79 +12,51 @@ ll mod = 1e9 + 7;
 //------------------------------------------------------------------------------
 
 void solve(void)
-{
-    ll f=0,n;
-    cin>>n;
-    vector<ll>v;
+{ll n, m;
+    cin >> n;
+    ll a[n];
+    map<ll, vector<ll>> mp;
     for(int i=0;i<n;i++)
     {
-        ll o;
-        cin>>o;
-        v.push_back(o);
+        cin >> a[i];
+        mp[a[i]].push_back(i);
     }
-    ll m;
-    cin>>m;
-    for (int i = 0; i < m; i++)
+    cin >> m;
+    while (m--)
     {
         string s;
-        cin>>s;
-        if (s.size()!=n)
+        cin >> s;
+        if (s.size() != n)
         {
             cout<<"NO"<<'\n';
+            continue;
         }
-        else
+        ll fl = 1;
+        map<char, ll> tt;
+        for (auto it : mp)
         {
-            map<char,ll>mp;
-            for (int i = 0; i < s.size(); i++)
+            char ch = s[it.sc[0]];
+            // cout<<ch<<' ';
+            tt[ch]++;
+            if (tt[ch] > 1)
+                fl = 0;
+            if (fl == 0)
+                break;
+            for (auto ii : it.second)
             {
-                if (mp[s[i]]==0)
+                if (s[ii] != ch)
                 {
-                    mp[s[i]]=v[i];
+                    fl = 0;
+                    break;
                 }
-                else
-                {
-                    if (mp[s[i]]!=v[i])
-                    {
-                        f=1;
-                        break;
-                    }
-                    
-                }
-                
             }
-            map<ll,char>mpp;
-            for (int i = 0; i <n; i++)
-            {
-                if (mpp[v[i]]==0)
-                {
-                    mpp[v[i]]=s[i];
-                }
-                else
-                {
-                    if (mpp[v[i]]!=s[i])
-                    {
-                        f=1;
-                        
-                        break;
-                    }
-                    
-                }
-                
-            }
-            if (f==0)
-            {
-                cout<<"YES"<<'\n';
-            }
-            else
-            {
-                cout<<"NO"<<'\n';
-            }
-            
-            f=0;
         }
-        
+ 
+        if (fl)
+            cout<<"YES"<<'\n';
+        else
+            cout<<"NO"<<'\n';
     }
-    
 }
 
 
