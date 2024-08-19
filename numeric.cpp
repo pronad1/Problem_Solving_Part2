@@ -35,7 +35,7 @@ void solve(void)
         map<char, ll> tt;
         for (auto it : mp)
         {
-            char ch = s[it.sc[0]];
+            char ch = s[it.second[0]];
             // cout<<ch<<' ';
             tt[ch]++;
             if (tt[ch] > 1)
