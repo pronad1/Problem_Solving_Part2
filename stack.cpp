@@ -10,19 +10,23 @@ using ll=long long ;
 ll mod = 1e9 + 7;
 
 //------------------------------------------------------------------------------
-stack<ll>st;
+
 
 void solve(void)
 {
-    cout<<"Enter the stack size"<<'\n';
     int n;
     cin>>n;
-    
+    stack<int>st;
     for (int i = 0; i < n; i++)
     {
         ll x;
         cin>>x;
-        push(st,top,maxtk,x);
+        st.push(x);
+    }
+    for (int i = 0; i < n; i++)
+    {
+       cout<<st.top()<<"\n";
+       st.pop();
     }
     
 }
@@ -35,7 +39,7 @@ ios_base::sync_with_stdio(false);
 cin.tie(NULL);
 
   ll t=1;
-  cin>>t;
+  //cin>>t;
     while(t--)
      {
        solve();
