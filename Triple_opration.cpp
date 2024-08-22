@@ -27,7 +27,7 @@ void solve(void)
 {
     ll l,r;
     cin>>l>>r;
-    
+    cout<<psum[r]-psum[l-1]+a[l]<<'\n';
 }
 
 
@@ -42,11 +42,6 @@ for (int i = 1; i < MAX-1; i++)
     a[i]=f(i);
     psum[i]=psum[i-1]+a[i];
 }
-for (int i = 0; i < 10; i++)
-{
-    cout<<psum[i]<<" ";
-}
-
   ll t=1;
   cin>>t;
     while(t--)
