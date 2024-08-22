@@ -13,7 +13,9 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-
+    ll l,r;
+    cin>>l>>r;
+    
 }
 
 
