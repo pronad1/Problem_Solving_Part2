@@ -13,7 +13,33 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-
+    ll f=0,n;
+    cin>>n;
+    vector<ll>v;
+    for(int i=0;i<n;i++)
+    {
+        ll o;
+        cin>>o;
+        v.push_back(o);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin>>x;
+        if (x!=v[i])
+        {
+            f=1;
+        }
+    }
+    if (f==0)
+    {
+        cout<<"Bob"<<'\n';
+    }
+    else
+    {
+        cout<<"Alice"<<'\n';
+    }
+    
 }
 
 
