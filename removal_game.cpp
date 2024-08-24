@@ -15,31 +15,29 @@ void solve(void)
 {
     ll f=0,n;
     cin>>n;
-    vector<ll>v;
+    vector<ll>a,b;
     for(int i=0;i<n;i++)
     {
         ll o;
         cin>>o;
-        v.push_back(o);
+        a.push_back(o);
     }
-    for (int i = 0; i < n; i++)
+    for(int i=0;i<n;i++)
     {
-        int x;
-        cin>>x;
-        if (x!=v[i])
-        {
-            f=1;
-        }
+        ll o;
+        cin>>o;
+        b.push_back(o);
     }
-    if (f==0)
-    {
+    if(a==b){
         cout<<"Bob"<<'\n';
+        return;
     }
-    else
-    {
-        cout<<"Alice"<<'\n';
+    reverse(a.begin(),a.end());
+    if(a==b){
+        cout<<"Bob"<<'\n';
+        return;
     }
-    
+    cout<<"Alice"<<'\n';
 }
 
 
