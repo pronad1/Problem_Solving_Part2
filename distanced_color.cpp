@@ -13,7 +13,9 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-
+    ll n,m,k;
+    cin>>n>>m>>k;
+    cout<<min(n,k)*min(m,k)<<'\n';
 }
 
 
