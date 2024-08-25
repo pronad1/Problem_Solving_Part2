@@ -22,7 +22,7 @@ void solve(void)
     {
     st.insert(s[i]);
     }
-    if (st.size()==1||s[0]==s[2])
+    if (st.size()==1||s[0]==s[n-1])
     {
         cout<<"NO"<<'\n';
         return;
