@@ -13,7 +13,18 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-
+    ll n;
+    cin>>n;
+    vector<ll>v;
+    for(int i=0;i<n;i++)
+    {
+        ll o;
+        cin>>o;
+        v.push_back(o);
+    }
+    sort(v.begin(),v.end());
+    int x=n/2;
+    cout<<v[x]<<'\n';
 }
 
 
