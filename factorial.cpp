@@ -21,12 +21,21 @@ ll factorial(int n){
     }
        
 }
+int fib(int n){
+    int f;
+    if (n<=1)
+    {
+        return n;
+    }
+    return fib(n-1)+fib(n-2);
+}
 void solve(void)
 {
     int n;
     cin>>n;
     ll r=factorial(n);
     cout<<r<<'\n';
+    cout<<fib(n);
 }
 
 
