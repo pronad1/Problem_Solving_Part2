@@ -10,6 +10,44 @@ using ll=long long ;
 ll mod = 1e9 + 7;
 
 //------------------------------------------------------------------------------
+int quick(int a[],int n,int beg,int end){
+    int left=beg, right=end,loc=beg;
+    step2:
+    while (a[loc]<=a[right] && loc!=right)
+    {
+        right--;
+    }
+    if (loc==right)
+    {
+        return loc;
+    }
+    if (a[loc]>a[right])
+    {
+        int temp=a[loc];
+        a[loc]=a[right];
+        a[right]=temp;
+        loc=right;
+    }
+    step3:
+    while (a[loc]>=a[left] && left!=loc)
+    {
+        left++;
+    }
+    if (loc==left)
+    {
+        return loc;
+    }
+    if (a[left]>a[loc])
+    {
+        int temp=a[left];
+        a[loc]=a[left];
+        a[left]=temp;
+        loc=left;
+        goto step2;
+    }
+    return 0;
+}
+
 
 void solve(void)
 {
@@ -35,7 +73,7 @@ void solve(void)
         top=top-1;
 
         loc=quick(v,n,beg,end);
-        
+
     }
     
 }
