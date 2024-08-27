@@ -29,7 +29,7 @@ int quick(int a[],int n,int beg,int end){
         loc=right;
     }
     step3:
-    while (a[loc]>=a[left] && left!=loc)
+    while (a[left]<=a[loc] && left!=loc)
     {
         left++;
     }
@@ -40,8 +40,8 @@ int quick(int a[],int n,int beg,int end){
     if (a[left]>a[loc])
     {
         int temp=a[left];
-        a[loc]=a[left];
-        a[left]=temp;
+        a[left]=a[loc];
+        a[loc]=temp;
         loc=left;
         goto step2;
     }
@@ -74,8 +74,24 @@ void solve(void)
 
         loc=quick(v,n,beg,end);
 
+        if (loc-1>beg)
+        {
+            top=top+1;
+            lower[top]=beg;
+            upper[top]=loc-1;
+        }
+        if (loc+1<end)
+        {
+            top=top+1;
+            lower[top]=loc+1;
+            upper[top]=end;
+        }
+        
     }
-    
+    for(auto element : v)
+    {
+    cout<<element<<" ";
+    }
 }
 
 
