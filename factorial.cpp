@@ -21,13 +21,16 @@ ll factorial(int n){
     }
        
 }
-int fib(int n){
-    int f;
-    if (n<=1)
+void fib(int n){
+    static int n1=0,n2=1,n3;
+    if (n>0)
     {
-        return n;
+        n3=n1+n2;
+        n1=n2;
+        n2=n3;
+        cout<<n3<<" ";
+        fib(n-1);
     }
-    return fib(n-1)+fib(n-2);
 }
 void solve(void)
 {
@@ -35,7 +38,8 @@ void solve(void)
     cin>>n;
     ll r=factorial(n);
     cout<<r<<'\n';
-    cout<<fib(n);
+    cout<<0<<" "<<1<<" ";
+    fib(n-2);
 }
 
 
