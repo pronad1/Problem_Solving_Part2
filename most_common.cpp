@@ -17,23 +17,28 @@ void solve(void)
         cin>>st[i];
         ma=max(ma,(ll)st[i].size());
     }
-    
+
+    vector<unordered_map<string, int>> suffix_count(ma + 1);
+    for (const string& s : st) {
+        int len = s.size();
+        for (int length = 1; length <= len; ++length) {
+            string suffix = s.substr(len - length);
+            suffix_count[length][suffix]++;
+        }
+    }
+
+    vector<int> max_fre(ma + 1, 0);
+    for (int length = 1; length <= ma; ++length) {
+        for (const auto& entry : suffix_count[length]) {
+            max_fre[length] = max(max_fre[length], entry.second);
+        }
+    }
+
     while (q--) {
         int x;
         cin >> x;
-        unordered_map<string, int> suffix_count;
-        int max_frequency = 0;
-
-        for (const string& s : st) {
-            int len = s.size();
-            if (len >= x) {
-                string suffix = s.substr(len - x);
-                suffix_count[suffix]++;
-                max_frequency = max(max_frequency, suffix_count[suffix]);
-            }
-        }
-
-        cout << max_frequency << '\n';
+        
+        cout << max_fre[x]<< '\n';
     }
 }
 
