@@ -13,8 +13,8 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-  string a[11]={"a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11"};
-  for (int i = 9; i>=0; i--)
+  string a[11]={"a1","a2","a3","a4","a5","a6","a7","a8","a9","a10"};
+  for (int i =8; i>=0; i--)
   {
     a[i+1]=a[i];
   }
