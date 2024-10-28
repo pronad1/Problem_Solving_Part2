@@ -14,40 +14,8 @@ void solve(void)
 {
     int X, Y, K;
     cin >> X >> Y >> K;
-    int Ax, Ay, Bx, By;
-    int Cx, Cy, Dx, Dy;
-    if (K <= X)
-    {
-        Ax = 0;
-        Ay = 0;
-        Bx = K;
-        By = 0;
-    }
-    else
-    {
-        // Adjust if K > X by setting Ax so Bx stays within bounds
-        Ax = 0;
-        Ay = 0;
-        Bx = X;
-        By = 0;
-    }
-    if (K <= Y)
-    {
-        Cx = 0;
-        Cy = 0;
-        Dx = 0;
-        Dy = K;
-    }
-    else
-    {
-        // Adjust if K > Y by setting Cy so Dy stays within bounds
-        Cx = 0;
-        Cy = 0;
-        Dx = 0;
-        Dy = Y;
-    }
-    cout << Ax << " " << Ay << " " << Bx << " " << By << "\n";
-    cout << Cx << " " << Cy << " " << Dx << " " << Dy << "\n";
+    cout << 0 << " " << 0 << " " << K << " " << 0 << "\n";
+    cout << 0 << " " << 0 << " " <<0 << " " << K << "\n";
 }
 
 //------------------------------------------------------------------------------
