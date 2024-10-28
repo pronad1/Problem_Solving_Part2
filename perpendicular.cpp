@@ -26,7 +26,7 @@ void solve(void)
     else
     {
         // Adjust if K > X by setting Ax so Bx stays within bounds
-        Ax = X - K;
+        Ax = 0;
         Ay = 0;
         Bx = X;
         By = 0;
@@ -42,7 +42,7 @@ void solve(void)
     {
         // Adjust if K > Y by setting Cy so Dy stays within bounds
         Cx = 0;
-        Cy = Y - K;
+        Cy = 0;
         Dx = 0;
         Dy = Y;
     }
