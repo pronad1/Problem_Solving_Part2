@@ -1,46 +1,64 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
-#include <numeric> // For std::gcd
+#include <algorithm>
 
 using namespace std;
 
-// Function to calculate gcd for fraction simplification
-long long gcd(long long a, long long b) {
-    return b == 0 ? a : gcd(b, a % b);
+// Helper function to square a number
+double square(double x) {
+    return x * x;
 }
 
-// Function to solve each test case
-void solveTestCase(int caseNum, int a, int b, int c) {
-    // Semi-perimeter (we multiply to keep it integer)
-    long long s = (a + b + c) / 2;
+// Custom gcd function for compatibility with C++11 or older
+long long gcd(long long a, long long b) {
+    while (b != 0) {
+        long long temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 
-    // Calculate area^2 using Heron's formula squared to avoid square roots
-    long long areaSquared = s * (s - a) * (s - b) * (s - c);
+// Function to find the square of the minimum jump distance
+// This uses a formula-based approximation based on Fermat's point concepts
+pair<long long, long long> fermat_distance_squared(int a, int b, int c) {
+    // Calculate the area of the triangle using Heron's formula
+    double s = (a + b + c) / 2.0;
+    double area = sqrt(s * (s - a) * (s - b) * (s - c));
 
-    // Calculate d^2 as a fraction (4 * area^2) / (a^2 + b^2 + c^2)
-    long long perimeterSquaredSum = a * a + b * b + c * c;
-    long long numerator = 4 * areaSquared;
-    long long denominator = perimeterSquaredSum;
+    // Calculate the Fermat point distance (approximate) using area and perimeter
+    double distance = (2 * sqrt(3) * area) / (a + b + c);
 
-    // Simplify the fraction by dividing by the GCD
-    long long commonDivisor = gcd(numerator, denominator);
-    numerator /= commonDivisor;
-    denominator /= commonDivisor;
+    // Square the distance
+    double squaredDistance = square(distance);
 
-    // Output the result in the required format
-    cout << "Case " << caseNum << ": " << numerator << "/" << denominator << endl;
+    // Convert squared distance to fraction form with large enough precision
+    long long numerator = static_cast<long long>(round(squaredDistance * 1e6));
+    long long denominator = 1e6;
+
+    // Reduce the fraction to irreducible form
+    long long gcd_val = gcd(numerator, denominator);
+    numerator /= gcd_val;
+    denominator /= gcd_val;
+
+    return make_pair(numerator, denominator);
 }
 
 int main() {
     int T;
     cin >> T;
 
-    for (int t = 1; t <= T; ++t) {
+    while (T--) {
         int a, b, c;
         cin >> a >> b >> c;
 
-        solveTestCase(t, a, b, c);
+        // Get the squared minimum jump distance as an irreducible fraction
+        pair<long long, long long> result = fermat_distance_squared(a, b, c);
+        long long numerator = result.first;
+        long long denominator = result.second;
+
+        // Output the result
+        cout << numerator << "/" << denominator << endl;
     }
 
     return 0;

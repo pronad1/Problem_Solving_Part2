@@ -19,11 +19,9 @@ void solve(void)
 
     double area = sqrt(s * (s - a) * (s - b) * (s - c));
 
-    double dSquared = (4 * area * area) / (a * a + b * b + c * c);
 
-
-    ll numerator =round(dSquared * 1000000);
-    ll denominator = 1000000;
+    double numerator =4 * area * area;
+    double denominator = (a + b + c)*(a+b+c);
 
     ll divisor = __gcd(numerator, denominator);
     numerator /= divisor;
