@@ -11,13 +11,7 @@ ll mod = 1e9 + 7;
 //------------------------------------------------------------------------------
 int gc(int a, int b)
 {
-    while (b != 0)
-    {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    return b == 0 ? a : gc(b, a % b);
 }
 void solve(void)
 {
@@ -28,11 +22,10 @@ void solve(void)
 
     double area = sqrt(s * (s - a) * (s - b) * (s - c));
 
-    double r = area / s;
+    double dSquared = (4 * area * area) / (a * a + b * b + c * c);
 
-    double rs = r * r;
 
-    int numerator = static_cast<int>(round(rs * 1e6));
+    int numerator =round(dSquared * 1000000);
     int denominator = 1000000;
 
     int divisor = gc(numerator, denominator);
