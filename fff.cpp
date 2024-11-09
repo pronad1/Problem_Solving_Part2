@@ -9,10 +9,7 @@ using ll = long long;
 ll mod = 1e9 + 7;
 
 //------------------------------------------------------------------------------
-int gc(int a, int b)
-{
-    return b == 0 ? a : gc(b, a % b);
-}
+
 void solve(void)
 {
     int a, b, c;
@@ -25,10 +22,10 @@ void solve(void)
     double dSquared = (4 * area * area) / (a * a + b * b + c * c);
 
 
-    int numerator =round(dSquared * 1000000);
-    int denominator = 1000000;
+    ll numerator =round(dSquared * 1000000);
+    ll denominator = 1000000;
 
-    int divisor = gc(numerator, denominator);
+    ll divisor = __gcd(numerator, denominator);
     numerator /= divisor;
     denominator /= divisor;
 
