@@ -51,4 +51,5 @@ cin.tie(NULL);
         cout<<"Case "<<i<<": "<<result<<'\n';
     }
 return 0;
+
 }
