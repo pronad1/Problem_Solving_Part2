@@ -12,7 +12,40 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-     
+     ll k,a,b,x,y;
+    cin>>k>>a>>b>>x>>y;
+    ll ans = 0;
+
+    while (1)
+    {
+        bool t1=(k>=a);
+        bool t2=(k>=b);
+        if (t1 && t2)
+        {
+            if(x<y){
+                k-=x;
+            }
+            else{
+                k-=y;
+            }
+            ans++;
+        }
+        else if (t1)
+        {
+            ans++;
+            k -= x;
+        }
+        else if (t2)
+        {
+            ans++;
+            k -= y;
+        }
+        else
+        {
+            break;
+        }
+    }
+    cout << ans << endl;
 }
 
 //------------------------------------------------------------------------------
