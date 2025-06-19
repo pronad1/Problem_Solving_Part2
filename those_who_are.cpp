@@ -16,6 +16,17 @@ void solve(void)
      cin>>n>>m;
      vector<vector<int>> ma;
      
+     int mx=0;
+     for (int i = 0; i < n; i++)
+     {
+        for (int j = 0; j < m; j++)
+        {
+            cin>>ma[i][j];
+            mx = max(mx, ma[i][j]);
+        }
+     }
+     
+     
 }
 
 //------------------------------------------------------------------------------
