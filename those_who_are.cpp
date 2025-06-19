@@ -27,8 +27,31 @@ void solve(void)
           mx = max(mx,x);
        }
     }
-    
-    cout<<mx<<endl;
+
+    int row_index = -1, col_index = -1;
+    for (int i = 0; i < n && row_index == -1; i++) {
+        for (int j = 0; j < m; j++) {
+            if (ma[i][j] == mx) {
+                row_index = i;
+                col_index = j;
+                break;
+            }
+        }
+    }
+    set<int> unique_rows = {row_index};
+    set<int> unique_cols = {col_index};
+    vector<int> row_indices = {row_index};
+    vector<int> col_indices = {col_index};
+
+    bool same_row = all_of(row_indices.begin(), row_indices.end(), [&](int r) { return r == row_indices[0]; });
+
+    bool same_col = all_of(col_indices.begin(), col_indices.end(), [&](int c) { return c == col_indices[0]; });
+
+    if (same_row && same_col) {
+        cout << mx-1<<'\n';
+    } else {
+        cout << mx << '\n';
+    }
 }
 
 //------------------------------------------------------------------------------
