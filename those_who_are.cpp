@@ -28,29 +28,41 @@ void solve(void)
        }
     }
 
-    int row_index = -1, col_index = -1;
-    for (int i = 0; i < n && row_index == -1; i++) {
-        for (int j = 0; j < m; j++) {
-            if (ma[i][j] == mx) {
-                row_index = i;
-                col_index = j;
-                break;
-            }
-        }
+    int tot=0,mx2=0;
+    vector<int> row(n+1,0), col(m+1,0);
+    for (int i = 0; i < n; i++)
+    {
+       for (int j = 0; j < m; j++)
+       {
+          row[i] += (ma[i][j] == mx);
+          col[j] += (ma[i][j] == mx);
+          tot += (ma[i][j] == mx);
+       }
     }
-    set<int> unique_rows = {row_index};
-    set<int> unique_cols = {col_index};
-    vector<int> row_indices = {row_index};
-    vector<int> col_indices = {col_index};
 
-    bool same_row = all_of(row_indices.begin(), row_indices.end(), [&](int r) { return r == row_indices[0]; });
+    // for(auto x:row) {
+    //     cout<<x<<" ";
+    // }
+    // cout<<endl;
+    // for(auto x:col) {
+    //     cout<<x<<" ";
+    // }
+    // cout<<endl;
+    
+    for (int i = 0; i < n; i++)
+    {
+       for (int j = 0; j < m; j++)
+       {
+          mx2 = max(mx2, row[i] + col[j] - (ma[i][j] == mx));
+          //cout <<"tot: "<<tot<< "i: " << i << " j: " << j << " mx2: " << mx2 << endl;
+       }
+    }
 
-    bool same_col = all_of(col_indices.begin(), col_indices.end(), [&](int c) { return c == col_indices[0]; });
 
-    if (same_row && same_col) {
-        cout << mx-1<<'\n';
+    if(mx2 == tot) {
+        cout << mx - 1 << endl;
     } else {
-        cout << mx << '\n';
+        cout << mx << endl;
     }
 }
 
