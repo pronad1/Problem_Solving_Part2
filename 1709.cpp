@@ -89,7 +89,7 @@ void solve(void)
 
             pair<int, int> p;
             p.first = 2;
-            p.second = x;
+            p.second = i+1;
             pairs.push_back(p);
             swap(b[i], b[pos_b]);
         }
