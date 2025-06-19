@@ -12,21 +12,23 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-     int n,m;
-     cin>>n>>m;
-     vector<vector<int>> ma;
-     
-     int mx=0;
-     for (int i = 0; i < n; i++)
-     {
-        for (int j = 0; j < m; j++)
-        {
-            cin>>ma[i][j];
-            mx = max(mx, ma[i][j]);
-        }
-     }
-     
-     
+    int n,m;
+    cin>>n>>m;
+    vector<vector<int>> ma(n, vector<int>(m));
+    
+    int mx=0;
+    for (int i = 0; i < n; i++)
+    {
+       for (int j = 0; j < m; j++)
+       {
+          int x;
+          cin>>x;
+          ma[i][j] = x;
+          mx = max(mx,x);
+       }
+    }
+    
+    cout<<mx<<endl;
 }
 
 //------------------------------------------------------------------------------
