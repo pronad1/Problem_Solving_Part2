@@ -59,6 +59,7 @@ void solve(void)
             if (pos_a == -1)
             {
                 p.first = 3;
+                swap(a[i], b[pos_b]);
             }
             else
             {
@@ -68,7 +69,36 @@ void solve(void)
             pairs.push_back(p);
         }
     }
+    // for(auto j:a)
+    // {
+    //     cout<<j<<' ';
+    // }
+    // cout << '\n';
+    for (int i = 0; i < n; i++)
+    {
+        if (b[i] != n+ i + 1)
+        {
+            int x = n+i + 1;
+            int pos_b = -1;
+            auto it_b = find(b.begin(), b.end(), x);
+            if (it_b != b.end())
+            {
+                pos_b = distance(b.begin(), it_b);
+                // pos_b is the position of x in b
+            }
 
+            pair<int, int> p;
+            p.first = 2;
+            p.second = x;
+            pairs.push_back(p);
+            swap(b[i], b[pos_b]);
+        }
+    }
+    // for(auto j:b)
+    // {
+    //     cout<<j<<' ';
+    // }
+    // cout << '\n';
     cout << pairs.size() << '\n';
     for (auto &p : pairs)
     {
