@@ -80,17 +80,17 @@ void solve(void)
             swap(a[i], b[i]);
         }
     }
-    for(auto j:a)
-    {
-        cout<<j<<' ';
-    }
-    cout << '\n';
+    // for(auto j:a)
+    // {
+    //     cout<<j<<' ';
+    // }
+    // cout << '\n';
 
-    for(auto j:b)
-    {
-        cout<<j<<' ';
-    }
-    cout << '\n';
+    // for(auto j:b)
+    // {
+    //     cout<<j<<' ';
+    // }
+    // cout << '\n';
     cout << pairs.size() << '\n';
     for (auto &p : pairs)
     {
