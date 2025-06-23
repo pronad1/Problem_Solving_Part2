@@ -14,7 +14,7 @@ void solve(void)
 {
      int n;
      cin>>n;
-     vector<int> a(n),s(n);
+     vector<int> a(n),s(n),r(n);
      for (int i = 0; i <n; i++)
      {
         cin>>a[i];
@@ -36,8 +36,10 @@ void solve(void)
     }
 
     s=a;
+    r=a;
+    sort(r.rbegin(), r.rend());
     sort(s.begin(), s.end());
-    if(s==a){
+    if(s==a||r==a){
         cout<<-1<<'\n';
     }
     else{
