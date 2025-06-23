@@ -14,34 +14,35 @@ void solve(void)
 {
      int n;
      cin>>n;
-     vector<int> a(n);
+     vector<int> a(n),s(n);
      for (int i = 0; i <n; i++)
      {
         cin>>a[i];
      }
 
-     if(n==2){
-        if((a[0]==a[1])||(abs(a[0]-a[1])==1)){
-            cout<<0<<'\n';
-        }else{
-            cout<<-1<<'\n';
-     }
-     return;
+     if (n == 2) {
+        if (abs(a[0] - a[1]) <= 1)
+            cout << 0 << '\n';
+        else
+            cout << -1 << '\n';
+        return;
     }
 
-    int f=0;
-    for (int  i = 0; i < n-1; i++)
-    {
-        if(a[i]==a[i+1]){
-            cout<<0<<'\n';
-            return;
-        }
-        if((abs(a[i]-a[i+2])==1)||a[i]==a[i+2]){
-            cout<<1<<'\n';
+    for (int i = 0; i < n - 1; i++) {
+        if (abs(a[i] - a[i + 1]) <= 1) {
+            cout << 0 << '\n';
             return;
         }
     }
-    
+
+    s=a;
+    sort(s.begin(), s.end());
+    if(s==a){
+        cout<<-1<<'\n';
+    }
+    else{
+        cout<<1<<'\n';
+    }
 }
 
 //------------------------------------------------------------------------------
