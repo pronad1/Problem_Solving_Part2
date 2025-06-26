@@ -15,11 +15,28 @@ void solve(void)
      int n;
      cin>>n;
     vector<int> a(n);
+    set<int> s;
     for (int i = 0; i < n; i++)
     {
         cin>>a[i];
+        s.insert(a[i]);
     }
     
+    if(n==3){
+        cout<<0<<'\n';
+        return;
+    }
+
+    if(s.size()==1){
+        ll x=(n*(n-1)*(n-2))/6;
+        cout<<x<<'\n';
+        return;
+    }
+
+    ll c=0;
+    
+
+
 }
 
 //------------------------------------------------------------------------------
