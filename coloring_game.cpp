@@ -59,7 +59,7 @@ void solve(void)
         {
             if ((a[j] + a[i] + a[i - 1]) > a[n - 1])
             {
-                c += (i-j);
+                c += (i-j-1);
                 cout<<i<<' ' <<j<<' '<<c<< '\n';
                 break;
             }
