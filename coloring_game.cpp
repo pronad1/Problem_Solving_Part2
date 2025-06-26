@@ -64,7 +64,6 @@ void solve(void)
                 break;
             }
         }
-        // cout << c << '\n';
     }
 }
 
