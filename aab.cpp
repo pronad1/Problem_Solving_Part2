@@ -12,19 +12,20 @@ void solve(void)
 {
     string s;
     cin >> s;
-    set<char>se;
-    for (char ch : s) {
-        se.insert(ch);
-    }
+    set<char> se(s.begin(), s.end());
     if (se.size() == 1) {
         cout << -1 << '\n';
     }
-    else if(se.size()==3 || se.size()==4){
-        cout<<4<<'\n';
+    else if (se.size() == 4 || se.size() == 3) {
+        cout << 4 << '\n';
     }
-    else{
-        cout<<6<<'\n';
-    }
+    else if (se.size() == 2) {
+       map<char, int> cnt;
+        for (char ch : s) cnt[ch]++;
+        if (cnt.begin()->second == 2 && (++cnt.begin())->second == 2)
+            cout << 4 << '\n';
+        else
+            cout << 6 << '\n';
 }
 //------------------------------------------------------------------------------
 int main()

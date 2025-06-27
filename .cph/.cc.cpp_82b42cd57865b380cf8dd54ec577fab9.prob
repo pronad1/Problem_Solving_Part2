@@ -1,0 +1,1 @@
+{"name":"Local: cc","url":"d:\\Languages\\Problem_Solving_Part2\\cc.cpp","tests":[{"id":1751032152628,"input":"6\n5\n5 3 4 4 5\n3\n1 1 1\n5\n4 4 3 4 4\n5\n5 5 4 3 2\n3\n1 1 2\n5\n5 4 3 5 5\n","output":"3\n-1\n4\n3\n3\n1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Languages\\Problem_Solving_Part2\\cc.cpp","group":"local","local":true}

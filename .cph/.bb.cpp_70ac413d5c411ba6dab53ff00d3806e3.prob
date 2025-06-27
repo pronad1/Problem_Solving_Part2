@@ -1,0 +1,1 @@
+{"name":"Local: bb","url":"d:\\Languages\\Problem_Solving_Part2\\bb.cpp","tests":[{"id":1751032275405,"input":"3\n9546\n0000\n3313\n","output":"4\n-1\n6\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Languages\\Problem_Solving_Part2\\bb.cpp","group":"local","local":true}
