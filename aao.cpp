@@ -12,23 +12,24 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-    ll n, sum = 0;
+    ll n, sum = 0, mx = 0;
     cin >> n;
     vector<ll> a(n);
     for (ll i = 0; i < n; i++)
     {
         cin >> a[i];
         sum += a[i];
+        mx = max(mx, a[i]);
     }
-    if (sum%2==0)
-    {
-        cout << "YES\n";
-    }
-    else
+
+    if (sum % 2 != 0 || mx > sum - mx)
     {
         cout << "NO\n";
     }
-    
+    else
+    {
+        cout << "YES\n";
+    }
 }
 
 //------------------------------------------------------------------------------
