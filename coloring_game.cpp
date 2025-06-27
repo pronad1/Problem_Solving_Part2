@@ -24,7 +24,14 @@ void solve(void)
 
     if (n == 3)
     {
-        cout << 0 << '\n';
+        if ((a[0] + a[1]) > a[2])
+        {
+            cout << 1 << '\n';
+        }
+        else
+        {
+            cout << 0 << '\n';
+        }
         return;
     }
 
