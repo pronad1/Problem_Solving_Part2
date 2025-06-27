@@ -15,62 +15,34 @@ void solve(void)
     int n;
     cin >> n;
     vector<int> a(n);
-    set<int> s;
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
-        s.insert(a[i]);
     }
 
-    if (n == 3)
-    {
-        if ((a[0] + a[1]) > a[2])
-        {
-            cout << 1 << '\n';
-        }
-        else
-        {
-            cout << 0 << '\n';
-        }
-        return;
-    }
+    ll c=0,mx=a[n-1];
 
-    if (s.size() == 1)
+    for (int i = 2; i < n; i++)
     {
-        ll x = (n * (n - 1) * (n - 2)) / 6;
-        cout << x << '\n';
-        return;
-    }
+        ll ali=2ll*a[i];
+        ll z=max(ali, mx)-a[i];
 
-    ll c = 0;
-    for (int i = n - 2; i > 1; i--)
-    {
-        for (int j = 0; j < i; j++)
+        int l=0, r=i-1;
+        while (l<r)
         {
-            
-            if ((a[i] + a[j]) > a[n - 1])
-            {
-                c += (i-j);
-                break;
-                
+            ll sum=a[l]+a[r];
+
+            if(sum>z){
+                c+=(r-l);
+                r--;
+            }
+            else{
+                l++;
             }
         }
-        
+        // cout<<c<<' ';
     }
-
     
-
-    for (int i = n - 2; i > 1; i--)
-    {
-        for (int j = 0; j < i; j++)
-        {
-            if ((a[j] + a[i] + a[i - 1]) > a[n - 1])
-            {
-                c += (i-j-1);
-                break;
-            }
-        }
-    }
     cout<<c<<'\n';
 }
 
