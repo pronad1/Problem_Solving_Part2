@@ -12,28 +12,41 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-     int a, b, c, d, e, f;
-    cin >> a >> b >> c >> d >> e >> f;
-    int x=a+c+e;
-    int y=b+d+f;
+    vector<int>a(3),b(3);
 
-    int o=a+c+f;
-    int p=b+d+e;
-
-    int u=a+d+e;
-    int v=b+c+f;
-
-    int l=a+d+f;
-    int m=b+c+e;
-
-    if(x == y || o == p || u == v || l == m)
+    for (int i = 0; i < 3; i++)
     {
-        cout << "YES\n";
+        int x,y;
+        cin>>x>>y;
+        a[i] = x;
+        b[i] = y;
     }
-    else
+    if (a[0]==a[1] && a[1]==a[2] && a[2]==(b[0]+b[1]+b[2]))
     {
-        cout << "NO\n";
+        cout<<"YES"<<'\n';
+        return;
     }
+
+    if(a[0]==b[0]+b[1] && a[0]==a[1]+a[2] && a[0]==b[0]+b[2]){
+        cout<<"YES"<<'\n';
+        return;
+    }
+
+    if(b[0]==b[1] && b[1]==b[2] && b[2]==(a[0]+a[1]+a[2])){
+        cout<<"YES"<<'\n';
+        return;
+    }
+
+    if((a[0]+a[1])==b[0] && b[0]==(b[1]+b[2]) && b[0]==(a[0]+a[2])){
+
+        cout<<"YES"<<'\n';
+        return;
+    }
+    
+   cout<<"NO"<<'\n';
+    
+    
+
 }
 //------------------------------------------------------------------------------
 int main()
