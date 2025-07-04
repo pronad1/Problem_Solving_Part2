@@ -12,24 +12,30 @@ ll mod = 1e9 + 7;
 
 void solve(void)
 {
-     ll n,m;
-     cin>>n>>m;
-     string s;
-     cin>>s;
-     for (int  i = 0; i < m; i++)
-     {
-        ll l,r;
-        cin>>l>>r;
-        if((abs(r-l+1)>=2) && l!=1 && r!=n)
-        {
-            cout<<"YES"<<endl;
+    ll n, m;
+    cin >> n >> m;
+    string s;
+    cin >> s;
+    for (int i = 0; i < m; i++)
+    {
+        ll l, r;
+        cin >> l >> r;
+        l--; r--;
+        bool found = false;
+        for (int j = 0; j < l; ++j) {
+            if (s[j] == s[l]) {
+                found = true;
+                break;
+            }
         }
-        else
-        {
-            cout<<"NO"<<endl;
+        for (int j = r + 1; j < n && !found; ++j) {
+            if (s[j] == s[r]) {
+                found = true;
+                break;
+            }
         }
-     }
-     
+        cout << (found ? "YES" : "NO") << '\n';
+    }
 }
 
 //------------------------------------------------------------------------------
