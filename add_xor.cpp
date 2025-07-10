@@ -15,43 +15,41 @@ void solve(void)
     ll a, b, x, y;
     cin >> a >> b >> x >> y;
 
-    if (b == 1)
-    {
-        cout << -1 << "\n";
-        return;
-    }
-    if(b<a){
-        ll diff= a - b;
-        cout<<diff*y<<"\n";
-        return;
-    }
     if (a == b)
     {
         cout << 0 << "\n";
-        return;
     }
-
-    ll ans =0;
-
-    if (x<=y){
-        ans = (b - a) * x;
+    else if (a > b)
+    {
+        cout << ((a ^ 1) == b ? y : -1) << "\n";
     }
-    else{
-        ll diff = b - a;
-        if(diff%2==0){
-            ans = (diff / 2) * y + (diff / 2) * x;
+    else
+    {
+        ll ans = 0;
+        if (x <= y)
+        {
+            ans = (b - a) * x;
         }
-        else{
-            ll half = diff / 2;
-            if(a%2==0){
-                ans=(half + 1) * y + half * x;
+        else
+        {
+            ll diff = b - a;
+            if (diff % 2 == 0)
+            {
+                ans = (diff / 2) * y + (diff / 2) * x;
             }
             else
-            ans = half * y + (half + 1) * x;
+            {
+                ll half = diff / 2;
+                if (a % 2 == 0)
+                {
+                    ans = (half + 1) * y + half * x;
+                }
+                else
+                    ans = half * y + (half + 1) * x;
+            }
         }
+        cout << ans << "\n";
     }
-
-    cout << ans << "\n";
 }
 
 //------------------------------------------------------------------------------
