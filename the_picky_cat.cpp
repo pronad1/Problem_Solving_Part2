@@ -21,8 +21,9 @@ void solve(void)
     }
 
     if (v[0]<0){
+        ll x=abs(v[0]);
         sort(v.rbegin(), v.rend());
-        ll x=v[0]*-1;
+        
         n=n-1;
         ll count = 0;
         for (int i = 0; i < n; i++)
@@ -32,7 +33,7 @@ void solve(void)
                 count++;
             }
         }
-        count++;
+        // cout<<count<<x;
         if(count>= n/2)
         {
             cout << "YES" << endl;
