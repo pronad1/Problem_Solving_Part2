@@ -15,19 +15,10 @@ void solve(void)
 {
     ll n;
     cin >> n;
-    ll cnt = 1;
-    for (ll i = 2; i <=n; i++)
-    {
-        ll x=pow(i,i);
-        ll r=sqrt(x);
-        if (r*r==x)
-        {
-            cout<<x<<i;
-            cnt++;
-        }
-        
+    ll cnt = 0;
+    for (ll i = 1; i * i <= n; ++i) {
+        if (i == 1 || i % 2 == 0) cnt++;
     }
-    
     cout << cnt << '\n';
 }
 
