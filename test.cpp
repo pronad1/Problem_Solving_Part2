@@ -1,65 +1,103 @@
-#include <iostream>
-#include <cmath>
-#include <algorithm>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-// Helper function to square a number
-double square(double x) {
-    return x * x;
-}
+struct node
+{
+    string data;
+    node* next;
+    node(string val) : data(val),next(nullptr) {}
+};
 
-// Custom gcd function for compatibility with C++11 or older
-long long gcd(long long a, long long b) {
-    while (b != 0) {
-        long long temp = b;
-        b = a % b;
-        a = temp;
+node* head=nullptr;
+
+void display(){
+    for (node* i = head; i; i=i->next)
+    {
+        cout<<i->data<<(i->next ? " -> ": "\n");
     }
-    return a;
+    
 }
 
-// Function to find the square of the minimum jump distance
-// This uses a formula-based approximation based on Fermat's point concepts
-pair<long long, long long> fermat_distance_squared(int a, int b, int c) {
-    // Calculate the area of the triangle using Heron's formula
-    double s = (a + b + c) / 2.0;
-    double area = sqrt(s * (s - a) * (s - b) * (s - c));
-
-    // Calculate the Fermat point distance (approximate) using area and perimeter
-    double distance = (2 * sqrt(3) * area) / (a + b + c);
-
-    // Square the distance
-    double squaredDistance = square(distance);
-
-    // Convert squared distance to fraction form with large enough precision
-    long long numerator = static_cast<long long>(round(squaredDistance * 1e6));
-    long long denominator = 1e6;
-
-    // Reduce the fraction to irreducible form
-    long long gcd_val = gcd(numerator, denominator);
-    numerator /= gcd_val;
-    denominator /= gcd_val;
-
-    return make_pair(numerator, denominator);
+void insertstart(string val)
+{
+    node* newnode=new node(val);
+    newnode->next= head;
+    head=newnode;
 }
 
-int main() {
-    int T;
-    cin >> T;
-
-    while (T--) {
-        int a, b, c;
-        cin >> a >> b >> c;
-
-        // Get the squared minimum jump distance as an irreducible fraction
-        pair<long long, long long> result = fermat_distance_squared(a, b, c);
-        long long numerator = result.first;
-        long long denominator = result.second;
-
-        // Output the result
-        cout << numerator << "/" << denominator << endl;
+void insertend(string val)
+{
+    node* newnode=new node(val);
+    if (!head)
+    {
+        head=newnode;
+        return;
     }
+    node* temp=head;
+    while (temp->next)
+    {
+        temp=temp->next;
+    }
+    temp->next=newnode;
+}
 
+void insertafter(string val,int pos)
+{
+    node* temp=head;
+    for (int i = 1; i < pos-1 && temp ; i++)
+    {
+        temp=temp->next;
+    }
+    if (temp)
+    {
+        node* newnode=new node(val);
+        newnode->next=temp->next;
+        temp->next=newnode;
+    }
+} 
+
+int main()
+{
+    cout<<"Enter the number of data : ";
+    int n;
+    cin>>n;
+    cout<<"Enter the string :\n";
+    for (int i = 0; i < n; i++)
+    {
+        string s;
+        cin>>s;
+        insertend(s);
+    }
+    display();
+    cout<<"Enter string for adding last position: ";
+    string p;
+    cin>>p;
+    insertend(p);
+    display();
+    cout<<"Enter a string for adding first position : ";
+    cin>>p;
+    insertstart(p);
+    display();
+    string s="av";
+    cout<<"avail list :-\n";
+    for (int  i = 0; i < 3; i++)
+    {
+        cout<<s<<" -> ";
+    }
+    cout<<'\n';
+    cout<<"Enter a string and position for adding this place: ";
+    string x;
+    cin>>x;
+    cout<<"Enter the position: ";
+    int po;
+    cin>>po;
+    insertafter(x,po);
+    display();
+    cout<<"avail list :-\n";
+    for (int  i = 0; i < 2; i++)
+    {
+        cout<<s<<" -> ";
+    }
+    cout<<'\n';
     return 0;
 }
