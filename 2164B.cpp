@@ -24,17 +24,14 @@ void solve(void)
     ll a = 0, b = 0;
     for (int i = 0; i < n - 1; i++)
     {
-        if (v[i] % 2)
+        a = v[i];
+        for (int j = i + 1; j < n; j++)
         {
-            a = v[i];
-            for (int j = i + 1; j < n; j++)
+            int t = (v[j] % a);
+            if (t % 2 == 0)
             {
-                int t = (v[j] % a);
-                if (t % 2 == 0)
-                {
-                    b = v[j];
-                    break;
-                }
+                b = v[j];
+                break;
             }
         }
         if (b)
