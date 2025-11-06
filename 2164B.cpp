@@ -29,15 +29,16 @@ void solve(void)
             a = v[i];
             for (int j = i + 1; j < n; j++)
             {
-                int t if ((b % a) % 2 == 0)
+                int t = (v[j] % a);
+                if (t % 2 == 0)
                 {
                     b = v[j];
                     break;
                 }
             }
-            if (b)
-                break;
         }
+        if (b)
+            break;
     }
     if (a && b)
     {
