@@ -14,29 +14,48 @@ void solve(void)
 {
     ll n, m, h;
     cin >> n >> m >> h;
-    vector<ll> a(n), b(n);
+    vector<ll> a(n);
+
     for (ll i = 0; i < n; i++)
     {
         cin >> a[i];
     }
 
-    b = a;
+    vector<pair<ll, ll>> ops(m);
     for (int i = 0; i < m; i++)
     {
-        ll u, v;
-        cin >> u >> v;
-        ll temp = b[u - 1] + v;
-        if (temp > h)
+        cin >> ops[i].first >> ops[i].second;
+    }
+
+    int lc = -1;
+    unordered_map<ll, ll> temp;
+
+    for (int i = 0; i < m; i++)
+    {
+        ll u = ops[i].first - 1;
+        ll v = ops[i].second;
+
+        if (temp[u] + a[u] + v > h)
         {
-            b = a;
+            temp.clear();
+            lc = i;
         }
         else
         {
-            b[u - 1] = temp;
+            temp[u] += v;
         }
     }
-    for_each(b.begin(), b.end(), [](ll &x)
-             { cout << x << " "; });
+
+    vector<ll> b = a;
+    for (int i = lc + 1; i < m; i++)
+    {
+        b[ops[i].first - 1] += ops[i].second;
+    }
+
+    for (ll i = 0; i < n; i++)
+    {
+        cout << b[i] << " ";
+    }
     cout << "\n";
 }
 
