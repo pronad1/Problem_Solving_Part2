@@ -14,33 +14,30 @@ void solve(void)
 {
     ll n;
     cin >> n;
-    set<ll> a;
+    vector<ll> a(n);
     for (ll i = 0; i < n; i++)
     {
-        ll x;
-        cin >> x;
-        a.insert(x);
+        cin >> a[i];
     }
-    vector<ll> a_vec(a.begin(), a.end());
-    sort(a_vec.begin(), a_vec.end());
+    sort(a.begin(), a.end());
 
-    ll f = 0, ans = 0, st = a_vec[0];
+    ll ans = 0;
     for (ll i = 0; i < n; i++)
     {
-        if (a_vec[i] == st)
-        {
-            f++;
-            st++;
-        }
-        else
-        {
-            f = 1;
-            st = a_vec[i];
-            st++;
-        }
+        ll sh = -a[i];
+        ll mex = 0;
 
-        ans = max(ans, f);
+        for (ll j = 0; j < n; j++)
+        {
+            ll sval = a[j] + sh;
+            if (sval == mex)
+            {
+                mex++;
+            }
+        }
+        ans = max(ans, mex);
     }
+
     cout << ans << "\n";
 }
 
