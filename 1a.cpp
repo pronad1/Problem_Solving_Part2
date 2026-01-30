@@ -1,5 +1,4 @@
 // Author  :  PROSENJIT MONDOL
-
 #include <bits/stdc++.h>
 #define lower(s) transform(s.begin(), s.end(), s.begin(), ::tolower);
 #define upper(s) transform(s.begin(), s.end(), s.begin(), ::toupper);
