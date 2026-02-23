@@ -1,2 +1,4 @@
 # Problem_Solving_Part2
-image[!codeforce halat.jpg]
+# Problem_Solving_Part2
+
+![codeforce halat](codeforce%20halat.jpg)
